@@ -54,7 +54,7 @@ $hinnangud = $hinnangud_result->get_result();
                     <td><?php echo htmlspecialchars($row['hinne']); ?></td>
                     <td><?php echo htmlspecialchars($row['kommentaar']); ?></td>
                     <td>
-                        <form action="delete_review.php" method="post">
+                        <form action="kustutahinne.php" method="post">
                             <input type="hidden" name="hinnang_id" value="<?php echo $row['id']; ?>">
                             <input type="hidden" name="toidukoht_id" value="<?php echo $toidukoht_id; ?>">
                             <button type="submit">Kustuta</button>
