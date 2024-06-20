@@ -11,7 +11,6 @@ if (!isset($_SESSION['admin'])) {
     exit();
 }
 
-// Kõikide toidukohtade kuvamine
 $result = $conn->query('SELECT * FROM toidukohad');
 ?>
 
