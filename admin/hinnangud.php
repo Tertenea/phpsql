@@ -14,7 +14,6 @@ if (!isset($_GET['id'])) {
 
 $toidukoht_id = $_GET['id'];
 
-// Valitud toidukoha info kuvamine
 $toidukoht_result = $mysqli->prepare('SELECT nimi FROM toidukohad WHERE id = ?');
 $toidukoht_result->bind_param('i', $toidukoht_id);
 $toidukoht_result->execute();
@@ -22,7 +21,6 @@ $toidukoht_result->bind_result($toidukoht_nimi);
 $toidukoht_result->fetch();
 $toidukoht_result->close();
 
-// Toidukoha hinnangute kuvamine
 $hinnangud_result = $mysqli->prepare('SELECT * FROM hinnangud WHERE toidukoha_id = ?');
 $hinnangud_result->bind_param('i', $toidukoht_id);
 $hinnangud_result->execute();
