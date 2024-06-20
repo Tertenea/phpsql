@@ -44,7 +44,12 @@ $result = $conn->query('SELECT * FROM toidukohad');
                     <td><?php echo htmlspecialchars($row['hinnangud']); ?></td>
                     <td><a href="hinnangud.php?id=<?php echo $row['id']; ?>">Vaata Hinnanguid</a></td>
                     <td><a href="muuda.php?id=<?php echo $row['id']; ?>">Muuda</a></td>
-                    <td><a href="kustuta.php?id=<?php echo $row['id']; ?>">Kustuta</a></td>
+                    <td>
+                        <form method="POST" action="kustuta.php" style="display:inline;">
+                            <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                            <button type="submit">Kustuta</button>
+                        </form>
+                    </td>
                 </tr>
             <?php endwhile; ?>
         </tbody>
