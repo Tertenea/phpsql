@@ -14,14 +14,14 @@ if (!isset($_GET['id'])) {
 
 $toidukoht_id = $_GET['id'];
 
-$toidukoht_result = $mysqli->prepare('SELECT nimi FROM toidukohad WHERE id = ?');
+$toidukoht_result = $conn->prepare('SELECT nimi FROM toidukohad WHERE id = ?');
 $toidukoht_result->bind_param('i', $toidukoht_id);
 $toidukoht_result->execute();
 $toidukoht_result->bind_result($toidukoht_nimi);
 $toidukoht_result->fetch();
 $toidukoht_result->close();
 
-$hinnangud_result = $mysqli->prepare('SELECT * FROM hinnangud WHERE toidukoha_id = ?');
+$hinnangud_result = $conn->prepare('SELECT * FROM hinnangud WHERE toidukoha_id = ?');
 $hinnangud_result->bind_param('i', $toidukoht_id);
 $hinnangud_result->execute();
 $hinnangud = $hinnangud_result->get_result();
